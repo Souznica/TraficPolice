@@ -8,7 +8,7 @@
         Title="ГАИ" Height="450" Width="800">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="210"/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <StackPanel Grid.Column="0">
@@ -16,6 +16,8 @@
             <Button Click="BtnCar_Click" Name="BtnCar" Margin="10 5 10 0" Content="Автомобили"/>
             <Button Click="BntDriver_Click" Name="BntDriver" Margin="10 5 10 0" Content="Водители"/>
             <Button Click="BtnViolation_Click" Name="BtnViolation" Margin="10 5 10 0" Content="Нарушения"/>
+            <Button Click="BtnHistory_Click" Name="BtnHistory" Margin="10 5 10 0" Content="История владельцев моего ТС"/>
+            <Button Click="BtnPenalty_Click" Name="BtnPenalty" Margin="10 5 10 0" Content="Мои штрафы"/>
             <Button Click="BtnGoback_Click" Name="BtnGoback" Margin="10 5 10 0" Content="Назад"/>
         </StackPanel>
         <Frame x:Name="MainFrame" Grid.Column="1"

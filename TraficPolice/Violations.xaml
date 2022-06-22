@@ -8,7 +8,6 @@
       d:DesignHeight="450" d:DesignWidth="800"
       IsVisibleChanged="Page_IsVisibleChanged"
       Title="Violations">
-
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="100"/>
@@ -20,20 +19,28 @@
                HorizontalAlignment="Center"/>
         <TextBox x:Name="txt_search" Grid.Row="0" Height="30" Width="400" HorizontalAlignment="Left"
                  Margin="20 0 0 10" VerticalAlignment="Bottom" TextChanged="txt_search_TextChanged"/>
-        <DataGrid Margin="20 0 0 0" Grid.Row="1" AutoGenerateColumns="False" x:Name="ViolationsList">
-            <DataGrid.Columns>
-                <DataGridTextColumn Binding="{Binding title}" Header="Наименование" Width="*"/>
-                <DataGridTextColumn Binding="{Binding penaltyRange}" Header="Штраф" Width="*"/>
-                <DataGridTextColumn Binding="{Binding deprivationLicense}" Header="Лишение прав" Width="*"/>
-                <DataGridTemplateColumn>
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <Button Content="Редактировать" Click="Btn_Edit"/>
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
-            </DataGrid.Columns>
-        </DataGrid>
+        <ListView Margin="0 0 0 0" Grid.Row="1" x:Name="ViolationsList" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Grid MouseDown="Grid_MouseDown">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="30"/>
+                        </Grid.RowDefinitions>
+                        <Image Grid.Row="0" Grid.RowSpan="2" Stretch="Fill" Source="Images/photo_default.png" Width="400"/>
+                        <Grid Grid.Row="1" Background="Black" Opacity="0.5"/>
+                        <TextBox Text="{Binding title}" IsReadOnly="True" Grid.Row="1"
+                                 BorderThickness="0" TextWrapping="Wrap" Width="400" TextAlignment="Center" Background="Transparent" VerticalAlignment="Center" 
+                                 Height="30" MaxLength="100" MaxLines="1" ScrollViewer.VerticalScrollBarVisibility="Disabled" FontSize="15"/>
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+            <ListView.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel/>
+                </ItemsPanelTemplate>
+            </ListView.ItemsPanel>
+        </ListView>
         <Button Content="Добавить" Grid.Row="2" Margin="20 10 20 10" Width="200" HorizontalAlignment="Left" Click="Btn_Add"/>
         <Button Content="Удалить" Grid.Row="2" Margin="20 10 20 10" Width="200" HorizontalAlignment="Right" Click="Btn_Delete"/>
     </Grid>

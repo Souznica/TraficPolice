@@ -19,11 +19,51 @@ namespace TraficPolice
     /// </summary>
     public partial class MainWindow2 : Window
     {
+        Driver driver1;
         public MainWindow2()
         {
             InitializeComponent();
             Manager.MainFrame = MainFrame;
         }
+        public MainWindow2(bool i)
+        {
+            InitializeComponent();
+            Manager.MainFrame = MainFrame;
+            if (i == false)
+            {
+                BtnCar.Visibility = Visibility.Hidden;
+                BntDriver.Visibility = Visibility.Hidden;
+                BtnHistory.Visibility = Visibility.Visible;
+                BtnPenalty.Visibility = Visibility.Visible;
+            }
+            if (i == true)
+            {
+                BtnCar.Visibility = Visibility.Visible;
+                BntDriver.Visibility = Visibility.Visible;
+                BtnHistory.Visibility = Visibility.Hidden;
+                BtnPenalty.Visibility = Visibility.Hidden;
+            }
+        } // Конструктор выбора загрузки отображения
+        public MainWindow2(bool i, Driver driver)
+        {
+            InitializeComponent();
+            Manager.MainFrame = MainFrame;
+            if (i == false)
+            {
+                BtnCar.Visibility = Visibility.Hidden;
+                BntDriver.Visibility = Visibility.Hidden;
+                BtnHistory.Visibility = Visibility.Visible;
+                BtnPenalty.Visibility = Visibility.Visible;
+                driver1 = driver;
+            }
+            if (i == true)
+            {
+                BtnCar.Visibility = Visibility.Visible;
+                BntDriver.Visibility = Visibility.Visible;
+                BtnHistory.Visibility = Visibility.Hidden;
+                BtnPenalty.Visibility = Visibility.Hidden;
+            }
+        } // Конструктор выбора загрузки отображения c принятием в себя данных водителя
 
         private void BtnViolation_Click(object sender, RoutedEventArgs e)   
         {
@@ -56,5 +96,15 @@ namespace TraficPolice
             }
             else BtnGoback.Visibility = Visibility.Hidden;
         } // Проверка возможности вернуться на предыдущую страницу
+
+        private void BtnHistory_Click(object sender, RoutedEventArgs e)
+        {
+            MainFrame.Navigate(new MyCarHistory(driver1));
+        } // Открытие страницы истории ТС данного пользователя
+
+        private void BtnPenalty_Click(object sender, RoutedEventArgs e)
+        {
+            MainFrame.Navigate(new MyPenalty(driver1));
+        } // Открытие страницы штрафов данного пользователя
     }
 }

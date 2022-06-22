@@ -67,5 +67,13 @@ namespace TraficPolice
                 ViolationsList.ItemsSource = TrafficPoliceEntities.GetContext().Violation.Where(x=> x.title.StartsWith(s)).ToList();
             }
         } // Живой поиск
+
+        private void Grid_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.ClickCount == 2)
+            {
+                Manager.MainFrame.Navigate(new PreviewViolation((sender as Grid).DataContext as Violation));
+            }
+        }
     }
 }
