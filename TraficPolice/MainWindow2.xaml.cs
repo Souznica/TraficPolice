@@ -37,6 +37,8 @@ namespace TraficPolice
                 BtnHistory.Visibility = Visibility.Visible;
                 BtnPenalty.Visibility = Visibility.Visible;
                 History.Visibility = Visibility.Collapsed;
+                BtnAddIncident.Visibility = Visibility.Collapsed;
+
             }
             if (i == true)
             {
@@ -45,6 +47,7 @@ namespace TraficPolice
                 BntDriver.Visibility = Visibility.Visible;
                 BtnHistory.Visibility = Visibility.Collapsed;
                 BtnPenalty.Visibility = Visibility.Collapsed;
+                BtnAddIncident.Visibility = Visibility.Visible;
             }
         } // Конструктор выбора загрузки отображения
         public MainWindow2(bool i, DriversCars driver)
@@ -58,6 +61,7 @@ namespace TraficPolice
                 BtnHistory.Visibility = Visibility.Visible;
                 BtnPenalty.Visibility = Visibility.Visible;
                 History.Visibility = Visibility.Collapsed;
+                BtnAddIncident.Visibility = Visibility.Collapsed;
                 driver1 = driver;
             }
             if (i == true)
@@ -67,6 +71,7 @@ namespace TraficPolice
                 BntDriver.Visibility = Visibility.Visible;
                 BtnHistory.Visibility = Visibility.Collapsed;
                 BtnPenalty.Visibility = Visibility.Collapsed;
+                BtnAddIncident.Visibility = Visibility.Visible;
             }
         } // Конструктор выбора загрузки отображения c принятием в себя данных водителя
 
