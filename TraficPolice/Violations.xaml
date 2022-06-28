@@ -29,7 +29,7 @@
                         </Grid.RowDefinitions>
                         <Image Grid.Row="0" Grid.RowSpan="2" Stretch="Fill" Source="Images/photo_default.png" Width="400"/>
                         <Grid Grid.Row="1" Background="Black" Opacity="0.5"/>
-                        <TextBox Text="{Binding title}" IsReadOnly="True" Grid.Row="1"
+                        <TextBox Text="{Binding ViolationTitle}" IsReadOnly="True" Grid.Row="1"
                                  BorderThickness="0" TextWrapping="Wrap" Width="400" TextAlignment="Center" Background="Transparent" VerticalAlignment="Center" 
                                  Height="30" MaxLength="100" MaxLines="1" ScrollViewer.VerticalScrollBarVisibility="Disabled" FontSize="15"/>
                     </Grid>

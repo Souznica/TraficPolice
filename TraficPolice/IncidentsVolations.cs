@@ -16,8 +16,9 @@ namespace TraficPolice
     {
         public int idIncident { get; set; }
         public int idVolation { get; set; }
+        public string penalty { get; set; }
         public int statePenalty { get; set; }
-    
+
         public virtual Incident Incident { get; set; }
         public virtual State State { get; set; }
         public virtual Violation Violation { get; set; }

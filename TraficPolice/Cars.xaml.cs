@@ -23,6 +23,7 @@ namespace TraficPolice
         public Cars()
         {
             InitializeComponent();
+            
         }
 
         private void cmb_mark_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -38,24 +39,35 @@ namespace TraficPolice
         private void Page_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
         {
             TrafficPoliceEntities.GetContext().ChangeTracker.Entries().ToList().ForEach(entry => entry.Reload());
-            CarsList.ItemsSource = TrafficPoliceEntities.GetContext().Car.ToList();
             var markList = TrafficPoliceEntities.GetContext().Car.ToList();
             markList.Insert(0, new Car() { mark = "Все" });
             cmb_mark.ItemsSource = markList;
+            RefreshData();
         }
         public void RefreshData()
         {
-            var list = TrafficPoliceEntities.GetContext().Car.ToList();
+            var result = TrafficPoliceEntities.GetContext().DriversCars.Select(p => new
+            {
+                p.dateEndDrive,
+                p.idDriver,
+                StateNumber = p.Car.StateNumber,
+                mark = p.Car.mark,
+                model = p.Car.model,
+                color = p.Car.color,
+                madeYear = p.Car.madeYear,
+                driverName = p.Driver.name,
+            }).ToList().Where(p => p.dateEndDrive == null); //Выбор данных из двух таблиц по связной таблице DriversCars
+
             if (cmb_mark.SelectedIndex > 0)
             {
                 Car car = cmb_mark.SelectedItem as Car;
-                list = list.Where(x=> x.mark == car.mark).ToList();
+                result = result.Where(x => x.mark == car.mark).ToList();
             }
             if(!string.IsNullOrWhiteSpace(txt_search.Text))
             {
-                list = list.Where(x => x.StateNumber.ToLower().Contains(txt_search.Text.ToLower())).ToList();
+                result = result.Where(x => x.StateNumber.ToLower().Contains(txt_search.Text.ToLower())).ToList();
             }
-            CarsList.ItemsSource = list;
+            CarsList.ItemsSource = result.ToList();
         }
     }
 }

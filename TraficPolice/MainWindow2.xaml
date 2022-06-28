@@ -13,10 +13,12 @@
         </Grid.ColumnDefinitions>
         <StackPanel Grid.Column="0">
             <Image Source="Images/Logo.png" Width="100" Height="100"/>
+            <Button Click="BtnAddIncident_Click" Name="BtnAddIncident" Margin="10 5 10 0" Content="Добавить инцидент"/>
             <Button Click="BtnCar_Click" Name="BtnCar" Margin="10 5 10 0" Content="Автомобили"/>
             <Button Click="BntDriver_Click" Name="BntDriver" Margin="10 5 10 0" Content="Водители"/>
             <Button Click="BtnViolation_Click" Name="BtnViolation" Margin="10 5 10 0" Content="Нарушения"/>
-            <Button Click="BtnHistory_Click" Name="BtnHistory" Margin="10 5 10 0" Content="История владельцев моего ТС"/>
+            <Button Click="BtnHistory_Click" Name="BtnHistory" Margin="10 5 10 0" Content="Мои авто"/>
+            <Button Click="HistoryClick" Name="History" Margin="10 5 10 0" Content="История владельцев ТС"/>
             <Button Click="BtnPenalty_Click" Name="BtnPenalty" Margin="10 5 10 0" Content="Мои штрафы"/>
             <Button Click="BtnGoback_Click" Name="BtnGoback" Margin="10 5 10 0" Content="Назад"/>
         </StackPanel>

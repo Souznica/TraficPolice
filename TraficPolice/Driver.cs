@@ -17,8 +17,8 @@ namespace TraficPolice
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Driver()
         {
+            this.DriversCars = new HashSet<DriversCars>();
             this.Incident = new HashSet<Incident>();
-            this.Car = new HashSet<Car>();
         }
     
         public int numDriverDocument { get; set; }
@@ -28,9 +28,8 @@ namespace TraficPolice
         public string password { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Incident> Incident { get; set; }
+        public virtual ICollection<DriversCars> DriversCars { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Car> Car { get; set; }
-
+        public virtual ICollection<Incident> Incident { get; set; }
     }
 }

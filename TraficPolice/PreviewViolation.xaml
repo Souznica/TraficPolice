@@ -33,7 +33,7 @@
         <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.ColumnSpan="2"
                     HorizontalAlignment="Left">
             <TextBox Text="Нарушение: " Style="{StaticResource txt_box_preview}"/>
-            <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding title}"
+            <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding ViolationTitle}"
                      Style="{StaticResource txt_box_preview}"/>
         </StackPanel>
         <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.ColumnSpan="2"

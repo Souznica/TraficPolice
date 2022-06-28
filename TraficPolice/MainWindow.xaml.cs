@@ -76,8 +76,9 @@ namespace TraficPolice
                 {
                     int login = Convert.ToInt32(txt_login.Text);
                     string password = txt_password.Text;
-
-                    Driver driver = trafficPoliceEntities.Driver.ToList().Find(x => x.numDriverDocument == login);
+                    
+                    //Driver driver = trafficPoliceEntities.Driver.ToList().Find(x => x.numDriverDocument == login);
+                    DriversCars driver = trafficPoliceEntities.DriversCars.ToList().Find(x=> x.Driver.numDriverDocument == login);
                     if (driver == null)
                     {
                         MessageBox.Show("Данного пользователя не существует", "Ошибка!", MessageBoxButton.OK, MessageBoxImage.Error);
@@ -85,7 +86,7 @@ namespace TraficPolice
                     }
                     else
                     {
-                        if (driver.password.Equals(password)) // Успешная авторизация
+                        if (driver.Driver.password.Equals(password)) // Успешная авторизация
                         {
                             i = false;
                             MainWindow2 window2 = new MainWindow2(i, driver);

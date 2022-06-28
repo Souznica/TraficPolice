@@ -19,7 +19,7 @@ namespace TraficPolice
     /// </summary>
     public partial class MainWindow2 : Window
     {
-        Driver driver1;
+        DriversCars driver1;
         public MainWindow2()
         {
             InitializeComponent();
@@ -29,39 +29,44 @@ namespace TraficPolice
         {
             InitializeComponent();
             Manager.MainFrame = MainFrame;
+
             if (i == false)
             {
-                BtnCar.Visibility = Visibility.Hidden;
-                BntDriver.Visibility = Visibility.Hidden;
+                BtnCar.Visibility = Visibility.Collapsed;
+                BntDriver.Visibility = Visibility.Collapsed;
                 BtnHistory.Visibility = Visibility.Visible;
                 BtnPenalty.Visibility = Visibility.Visible;
+                History.Visibility = Visibility.Collapsed;
             }
             if (i == true)
             {
+                History.Visibility = Visibility.Visible;
                 BtnCar.Visibility = Visibility.Visible;
                 BntDriver.Visibility = Visibility.Visible;
-                BtnHistory.Visibility = Visibility.Hidden;
-                BtnPenalty.Visibility = Visibility.Hidden;
+                BtnHistory.Visibility = Visibility.Collapsed;
+                BtnPenalty.Visibility = Visibility.Collapsed;
             }
         } // Конструктор выбора загрузки отображения
-        public MainWindow2(bool i, Driver driver)
+        public MainWindow2(bool i, DriversCars driver)
         {
             InitializeComponent();
             Manager.MainFrame = MainFrame;
             if (i == false)
             {
-                BtnCar.Visibility = Visibility.Hidden;
-                BntDriver.Visibility = Visibility.Hidden;
+                BtnCar.Visibility = Visibility.Collapsed;
+                BntDriver.Visibility = Visibility.Collapsed;
                 BtnHistory.Visibility = Visibility.Visible;
                 BtnPenalty.Visibility = Visibility.Visible;
+                History.Visibility = Visibility.Collapsed;
                 driver1 = driver;
             }
             if (i == true)
             {
+                History.Visibility = Visibility.Visible;
                 BtnCar.Visibility = Visibility.Visible;
                 BntDriver.Visibility = Visibility.Visible;
-                BtnHistory.Visibility = Visibility.Hidden;
-                BtnPenalty.Visibility = Visibility.Hidden;
+                BtnHistory.Visibility = Visibility.Collapsed;
+                BtnPenalty.Visibility = Visibility.Collapsed;
             }
         } // Конструктор выбора загрузки отображения c принятием в себя данных водителя
 
@@ -99,6 +104,7 @@ namespace TraficPolice
 
         private void BtnHistory_Click(object sender, RoutedEventArgs e)
         {
+            
             MainFrame.Navigate(new MyCarHistory(driver1));
         } // Открытие страницы истории ТС данного пользователя
 
@@ -106,5 +112,15 @@ namespace TraficPolice
         {
             MainFrame.Navigate(new MyPenalty(driver1));
         } // Открытие страницы штрафов данного пользователя
+
+        private void BtnAddIncident_Click(object sender, RoutedEventArgs e)
+        {
+            MainFrame.Navigate(new AddIncident());
+        }
+
+        private void HistoryClick(object sender, RoutedEventArgs e)
+        {
+            MainFrame.Navigate(new HistoryPage());
+        }
     }
 }

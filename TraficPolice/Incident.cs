@@ -24,8 +24,6 @@ namespace TraficPolice
         public int idInspector { get; set; }
         public int idDriver { get; set; }
         public string idCar { get; set; }
-        public System.DateTime date { get; set; }
-        public string area { get; set; }
         public string deprivationLicense { get; set; }
     
         public virtual Car Car { get; set; }
@@ -33,7 +31,5 @@ namespace TraficPolice
         public virtual Inspector Inspector { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<IncidentsVolations> IncidentsVolations { get; set; }
-
-
     }
 }

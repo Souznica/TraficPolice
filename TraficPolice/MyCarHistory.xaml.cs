@@ -20,10 +20,27 @@ namespace TraficPolice
     /// </summary>
     public partial class MyCarHistory : Page
     {
-        public MyCarHistory(Driver driver)
+        DriversCars d;
+        public MyCarHistory(DriversCars driver)
         {
             InitializeComponent();
+            var list = TrafficPoliceEntities.GetContext().DriversCars.Select(p => new
+            {
+                idCar = p.Car.StateNumber,
+                DriverName = p.Driver.name,
+                idDriver = p.Driver.numDriverDocument,
+                DateStart = p.dateStartDrive,
+                DateEnd = p.dateEndDrive
+            }).ToList().Where(x=> x.DateEnd == null && x.idDriver == driver.Driver.numDriverDocument);
+            Drivers.ItemsSource = list;
+            d = driver;
         }
 
+        private void HistoryClick(object sender, RoutedEventArgs e)
+        {
+            var c = Drivers.SelectedItem as DriversCars;
+            DriversCars driver = TrafficPoliceEntities.GetContext().DriversCars.ToList().Find(x => x.idCar == d.Car.StateNumber);
+            Manager.MainFrame.Navigate(new CarHistory(driver));
+        }
     }
 }

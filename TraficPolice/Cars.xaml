@@ -34,14 +34,15 @@
                       SelectionChanged="cmb_mark_SelectionChanged"
                       DisplayMemberPath="mark"/>
         </StackPanel>
-        <DataGrid Margin="20 0 10 20" Grid.Row="2" AutoGenerateColumns="False" x:Name="CarsList">
+        <DataGrid Margin="20 0 10 20" Grid.Row="2" IsReadOnly="True"
+                  AutoGenerateColumns="False" x:Name="CarsList">
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding StateNumber}" Header="Гос. Номер" Width="*"/>
                 <DataGridTextColumn Binding="{Binding mark}" Header="Марка" Width="*"/>
                 <DataGridTextColumn Binding="{Binding model}" Header="Модель" Width="*"/>
                 <DataGridTextColumn Binding="{Binding color}" Header="Цвет" Width="*"/>
                 <DataGridTextColumn Binding="{Binding madeYear}" Header="Год выпуска" Width="*"/>
-                <DataGridTextColumn Binding="{Binding dateOfRegistration}" Header="Дата регистрации" Width="*"/>
+                <DataGridTextColumn Binding="{Binding driverName}" Header="ФИО владельца" Width="*"/>
             </DataGrid.Columns>
         </DataGrid>
     </Grid>

@@ -12,18 +12,14 @@ namespace TraficPolice
     using System;
     using System.Collections.Generic;
     
-    public partial class State
+    public partial class DriversCars
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public State()
-        {
-            this.IncidentsVolations = new HashSet<IncidentsVolations>();
-        }
+        public int idDriver { get; set; }
+        public string idCar { get; set; }
+        public Nullable<System.DateTime> dateStartDrive { get; set; }
+        public Nullable<System.DateTime> dateEndDrive { get; set; }
     
-        public int id { get; set; }
-        public string StateTitle { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<IncidentsVolations> IncidentsVolations { get; set; }
+        public virtual Car Car { get; set; }
+        public virtual Driver Driver { get; set; }
     }
 }

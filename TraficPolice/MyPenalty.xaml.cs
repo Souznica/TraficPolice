@@ -20,10 +20,17 @@ namespace TraficPolice
     /// </summary>
     public partial class MyPenalty : Page
     {
-        public MyPenalty(Driver driver)
+        public MyPenalty(DriversCars driver)
         {
             InitializeComponent();
+            var list = TrafficPoliceEntities.GetContext().IncidentsVolations.Select(p => new 
+            {
+                idDriver = p.Incident.idDriver,
+                NameDriver = p.Incident.Driver.name,
+                PenaltyName = p.penalty,
+                StateP = p.State.StateTitle
+            }).Where(x=> x.idDriver == driver.Driver.numDriverDocument).ToList();
+            Penalty.ItemsSource = list;
         }
-
     }
 }

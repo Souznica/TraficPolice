@@ -64,7 +64,7 @@ namespace TraficPolice
             }
             else
             {
-                ViolationsList.ItemsSource = TrafficPoliceEntities.GetContext().Violation.Where(x=> x.title.StartsWith(s)).ToList();
+                ViolationsList.ItemsSource = TrafficPoliceEntities.GetContext().Violation.Where(x=> x.ViolationTitle.StartsWith(s)).ToList();
             }
         } // Живой поиск
 

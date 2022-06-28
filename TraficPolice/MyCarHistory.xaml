@@ -9,6 +9,19 @@
       Title="MyCarHistory">
 
     <Grid>
-        
+        <DataGrid x:Name="Drivers" AutoGenerateColumns="False" IsReadOnly="True">
+            <DataGrid.Columns>
+                <DataGridTextColumn Width="*" Header="Транспорт" Binding="{Binding idCar}"/>
+                <DataGridTextColumn Width="*" Header="Дата начала вождения" Binding="{Binding DateStart}"/>
+                <DataGridTextColumn Width="*" Header="Дата окончания вождения" Binding="{Binding DateEnd}"/>
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="История" Click="HistoryClick"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
     </Grid>
 </Page>
